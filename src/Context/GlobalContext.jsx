@@ -3,8 +3,8 @@ import axios from "axios";
 
 const GlobalContext = createContext()
 
-const MovieProvider = ({children}) => {
-  const baseApiUrl = "https://api.themoviedb.org/3/search/movie?api_key=6cf11780013dc8256074e1389fdab41fquery=ritorno+al+futuro"
+const GlobalProvider = ({children}) => {
+  const baseApiUrl = "https://api.themoviedb.org/3/search/movie?api_key=6cf11780013dc8256074e1389fdab41f&query=ritorno+al+futuro"
   
 
   const [movies, setMovies] = useState([]);
@@ -12,13 +12,19 @@ const MovieProvider = ({children}) => {
   const fetchMovie = () =>{
     axios.get(baseApiUrl)
     .then((res) =>{
-      setMovies(res.data)
+      setMovies(res.data.results)
+      console.log(res.data.results);
+      
+    })
+    .catch(err =>{
+      console.log("Errore ", err);
+      
     })
   }
   return (
-    <GlobalContext.provider value={{movies, setMovies, fetchMovie}}>
+    <GlobalContext.Provider value={{movies, setMovies, fetchMovie}}>
       {children}
-    </GlobalContext.provider>
+    </GlobalContext.Provider>
   )
 }
 
@@ -26,4 +32,4 @@ const useGlobalContext = () =>{
   return useContext(GlobalContext)
 }
 
-export {useGlobalContext, MovieProvider}
+export {useGlobalContext, GlobalProvider}
