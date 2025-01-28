@@ -20,6 +20,12 @@ const GlobalProvider = ({children}) => {
       console.log("Errore ", err);
       
     })
+
+    const handlerSearch = (e) =>{
+      
+    }
+
+    
   }
   return (
     <GlobalContext.Provider value={{movies, setMovies, fetchMovie}}>
