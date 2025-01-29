@@ -15,9 +15,9 @@ const Header = () =>{
         
       }
   return(
-    <header>
+    <header className="text-bg-dark">
       <div className="container">
-        <nav className="navbar navbar-expand-lg text-bg-dark">
+        <nav className="navbar navbar-expand-lg">
           <div className="container-fluid d-flex">
             <a className="navbar-brand text-danger" href="#">BoolFlix</a>
 
