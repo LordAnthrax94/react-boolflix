@@ -1,4 +1,5 @@
 import languageFlag from "../assets/language"
+import rating from "../assets/rating"
 
 const ResultSection = ({title, data}) =>{
 
@@ -10,7 +11,7 @@ const ResultSection = ({title, data}) =>{
             {data.map((movie) => (<div className="col-12 col-md-4 mt-2" key={movie.id}>
               
               
-                  <div className="card" style={{width: "280px", height:"500px"}}>
+                  <div className="card" style={{width: "300px", height:"530px"}}>
                     <div className="card-body">
                       <h3 className="card-text">{movie.title || movie.name}</h3>
                       <img className="img-fluid" src={`https://image.tmdb.org/t/p/w154/${movie.poster_path}`} alt={movie.title || movie.name} />
@@ -18,7 +19,7 @@ const ResultSection = ({title, data}) =>{
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">{movie.original_title || movie.original_name}</li>
                       <li className="list-group-item">{movie.original_language} <img src={languageFlag[movie.original_language]} alt={movie.original_language} style={{width: "40px"}} /></li>
-                      <li className="list-group-item">{movie.vote_average}</li>
+                      <li className="list-group-item">{rating(movie.vote_average)}</li>
                     </ul>
                   </div>
                   
