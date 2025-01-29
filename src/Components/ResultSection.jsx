@@ -1,5 +1,5 @@
 import languageFlag from "../assets/language"
-import rating from "../assets/rating"
+import ratingStar from "../assets/rating"
 
 const ResultSection = ({title, data}) =>{
 
@@ -19,7 +19,7 @@ const ResultSection = ({title, data}) =>{
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item">{movie.original_title || movie.original_name}</li>
                       <li className="list-group-item">{movie.original_language} <img src={languageFlag[movie.original_language]} alt={movie.original_language} style={{width: "40px"}} /></li>
-                      <li className="list-group-item">{rating(movie.vote_average)}</li>
+                      <li className="list-group-item">{ratingStar (movie.vote_average)}</li>
                     </ul>
                   </div>
                   
